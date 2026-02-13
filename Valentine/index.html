@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Elangovan ❤️ Dharshini</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+overflow:hidden;
+font-family:Segoe UI;
+color:white;
+}
+
+/* slideshow image */
+#image{
+position:fixed;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:1;
+transition:opacity 0.5s;
+}
+
+/* start screen */
+#startScreen{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:10;
+}
+
+#startBtn{
+font-size:30px;
+padding:20px 50px;
+background:red;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* moving text */
+#text{
+position:fixed;
+bottom:-100%;
+width:100%;
+text-align:center;
+font-size:28px;
+padding:20px;
+background:linear-gradient(transparent,black);
+animation:scrollText 25s linear forwards;
+opacity:0;
+}
+
+@keyframes scrollText{
+0%{bottom:-100%;}
+100%{bottom:20%;}
+}
+
+/* ending */
+#ending{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-size:40px;
+opacity:0;
+transition:opacity 2s;
+}
+
+/* buttons */
+button{
+font-size:30px;
+margin:20px;
+padding:15px 40px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+#yes{
+background:red;
+color:white;
+}
+
+#no{
+background:white;
+color:red;
+position:relative;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- START SCREEN -->
+<div id="startScreen">
+
+<h1>Maa please❤️</h1>
+
+<button id="startBtn" onclick="startMovie()">
+Click to Start ❤️
+</button>
+
+</div>
+
+<img id="image" src="photo1.jpeg">
+
+<div id="text">
+
+Happy Valentine’s Day, Chinniiiii❤️🌍🫂💋😘
+
+From the moment you came into my life, everything became brighter and more beautiful ✨ You are not just my love, you are my peace, my comfort, and my biggest happiness 🫶 Your smile melts my heart 🥰 and with you, every moment feels magical 🌸 I don’t want anything else in life, I just want you by my side forever ♾️💍 Thank you for being my safe place and my everything 🤍 I promise to love you more every day, always and forever 💖 You will always be my Wife, my heart, my home ❤️🧿🥹😘
+
+</div>
+
+<div id="ending">
+
+<div>Will you be mine forever? ❤️</div>
+
+<button id="yes" onclick="yesLove()">YES 💖</button>
+<button id="no" onmouseover="runAway()">NO 😜</button>
+
+</div>
+
+<audio id="audio" loop>
+<source src="Audio.mpeg">
+</audio>
+
+<script>
+
+const images=[
+"photo1.jpeg",
+"photo2.jpeg",
+"photo3.jpeg",
+"photo4.jpeg",
+"photo5.jpeg",
+"photo6.jpeg",
+"photo7.jpeg",
+"photo8.jpeg",
+"photo9.jpeg",
+"photo10.jpeg",
+"photo11.jpeg",
+"photo12.jpeg",
+"photo13.jpeg",
+"photo14.jpeg",
+"photo15.jpeg"
+];
+
+let i=0;
+let started=false;
+
+const img=document.getElementById("image");
+const audio=document.getElementById("audio");
+
+function startMovie(){
+
+if(started) return;
+started=true;
+
+/* hide start screen */
+document.getElementById("startScreen").style.display="none";
+
+/* start audio */
+audio.play();
+
+/* show text */
+document.getElementById("text").style.opacity=1;
+
+/* slideshow */
+setInterval(()=>{
+
+i++;
+if(i>=images.length) i=0;
+
+img.style.opacity=0;
+
+setTimeout(()=>{
+img.src=images[i];
+img.style.opacity=1;
+},300);
+
+},2000);
+
+/* show ending after 30 sec */
+setTimeout(()=>{
+document.getElementById("ending").style.opacity=1;
+},30000);
+
+}
+
+function yesLove(){
+
+alert("I love you forever Bby Maa ❤️💘");
+
+}
+
+function runAway(){
+
+const btn=document.getElementById("no");
+
+btn.style.position="absolute";
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+
+}
+
+</script>
+
+</body>
+</html>
